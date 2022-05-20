@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server:run": "ts-node-dev src/server/index.ts",
-    "client:run": "ts-node-dev src/client/index.ts"
+    "client:run": "npm start src/client"
   },
   "repository": {
     "type": "git",
