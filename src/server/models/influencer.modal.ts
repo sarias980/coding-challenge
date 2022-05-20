@@ -3,8 +3,8 @@ export class Influencer {
     ig_name: string;
     category_1: string;
     category_2: string;
-    followers: string;
+    followers: number;
     audienceCountry: string;
-    authenticEngagement: string;
-    engagementAvg: string;
+    authenticEngagement: number;
+    engagementAvg: number;
 }
