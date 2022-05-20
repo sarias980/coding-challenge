@@ -1,5 +1,10 @@
 import {Request, Response} from "express";
-import {getInfluncers, getInfluncersByCategory, getInfluncersByCounty} from "./services/influencer.service";
+import {
+    getInfluncers,
+    getInfluncersByCategory,
+    getInfluncersByCounty,
+    setUpInfluencers
+} from "./services/influencer.service";
 
 
 const express = require('express');
@@ -11,34 +16,43 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
+// Post - Load influencers data from csv
+app.post('/influencers', async (req: Request, res: Response) => {
+    console.log('Post - Load influencers data from csv')
+    await setUpInfluencers();
+    res.status(200).send('Data load correctly');
+    return
+})
+
 // GET - Return all the influencers
-app.get('/influencers', (req: Request, res: Response) => {
+app.get('/influencers', async (req: Request, res: Response) => {
     console.log('GET - Return all the influencers')
-    const influencers = getInfluncers();
+    const influencers = await getInfluncers();
     res.json(influencers)
     return
 })
 
 // GET - Return the top 1 for category
-app.get('/influencers/top/category/:category', (req: Request, res: Response) => {
+app.get('/influencers/top/category/:category', async (req: Request, res: Response) => {
     console.log('GET - Return the top 1 for category')
-    if (!req.body.category) {
+    console.log(req.params);
+    if (!req.params.category) {
         res.status(400).send('Category not found!');
         return;
     }
-    const influencers = getInfluncersByCategory(req.body.category);
+    const influencers = await getInfluncersByCategory(req.params.category);
     res.json(influencers)
     return
 })
 
 // GET - Return the top 1 for country
-app.get('/influencers/top/country/:country', (req: Request, res: Response) => {
+app.get('/influencers/top/country/:country', async (req: Request, res: Response) => {
     console.log('GET - Return the top 1 for country')
-    if (!req.body.country) {
+    if (!req.params.country) {
         res.status(400).send('Country not found!');
         return;
     }
-    const influencers = getInfluncersByCounty(req.body.country);
+    const influencers = await getInfluncersByCounty(req.params.country);
     res.json(influencers)
     return
 })
