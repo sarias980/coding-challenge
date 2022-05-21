@@ -32,9 +32,9 @@ app.get('/influencers', async (req: Request, res: Response) => {
     return
 })
 
-// GET - Return the top 1 for category
+// GET - Return the top for category
 app.get('/influencers/top/category/:category', async (req: Request, res: Response) => {
-    console.log('GET - Return the top 1 for category')
+    console.log('GET - Return the top for category')
     console.log(req.params);
     if (!req.params.category) {
         res.status(400).send('Category not found!');
@@ -45,9 +45,9 @@ app.get('/influencers/top/category/:category', async (req: Request, res: Respons
     return
 })
 
-// GET - Return the top 1 for country
+// GET - Return the top for country
 app.get('/influencers/top/country/:country', async (req: Request, res: Response) => {
-    console.log('GET - Return the top 1 for country')
+    console.log('GET - Return the top for country')
     if (!req.params.country) {
         res.status(400).send('Country not found!');
         return;

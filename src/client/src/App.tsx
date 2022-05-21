@@ -10,29 +10,48 @@ import {
   theme,
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import InfluencerTable from "./components/InfluencerTable";
+import {Influencer} from "./models/influencer.modal";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-)
+export const App = () => {
+
+  const influencers: Influencer[] = [];
+  const influencersCategory: Influencer[] = [];
+  const influencersCountry: Influencer[] = [];
+
+  return (
+      <ChakraProvider theme={theme}>
+        <Box textAlign="center" fontSize="xl">
+          <ColorModeSwitcher justifySelf="flex-end" />
+          <Grid p={3}>
+            <VStack spacing={8}>
+
+              <Text>
+                Best influencers
+              </Text>
+
+              <InfluencerTable influencers={influencers}/>
+            </VStack>
+          </Grid>
+          <Grid p={3}>
+            <VStack spacing={8}>
+
+              <Text>
+                Best influencers in Music
+              </Text>
+
+              <InfluencerTable influencers={influencersCategory}/>
+            </VStack>
+          </Grid>
+          <Grid p={3}>
+            <VStack spacing={8}>
+              <Text>
+                Best influencers in Spain
+              </Text>
+              <InfluencerTable influencers={influencersCountry}/>
+            </VStack>
+          </Grid>
+        </Box>
+      </ChakraProvider>
+  )
+}
