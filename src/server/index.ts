@@ -9,12 +9,17 @@ import {
 
 const express = require('express');
 
+// enable CORS using npm package
+const cors = require('cors');
+
+
 // ENV file
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 
 // Post - Load influencers data from csv
 app.post('/influencers', async (req: Request, res: Response) => {

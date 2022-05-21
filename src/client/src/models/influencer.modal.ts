@@ -1,4 +1,5 @@
 export class Influencer {
+    _id:  string | undefined;
     name: string | undefined;
     ig_name: string | undefined;
     category_1: string | undefined;

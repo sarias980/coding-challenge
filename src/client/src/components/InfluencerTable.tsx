@@ -11,7 +11,7 @@ export default function InfluencerTable ({influencers}) {
             <InfluencerTableHeader/>
             <Tbody>
                 {influencers.map((influencer: Influencer) => (
-                    <Tr key={influencer.ig_name}>
+                    <Tr key={influencer._id}>
                         <Td>{influencer.name}</Td>
                         <Td>{influencer.ig_name}</Td>
                         <Td>{influencer.category_1}</Td>

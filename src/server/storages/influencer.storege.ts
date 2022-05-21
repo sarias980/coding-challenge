@@ -22,7 +22,6 @@ async function connectCollection() {
         if (!col) {
             await createCollection()
         }
-
         collection = dbConnect.collection(collectionName);
     }
 }
@@ -43,6 +42,5 @@ export async function saveInfluncers(influencers: Influencer[]) {
 export async function getInfluncersFromStorage( filter = {}, sort = {}) {
     await connectCollection();
     if (!collection)return []
-    console.log(filter);
     return await collection.find(filter).sort(sort).toArray();
 }
