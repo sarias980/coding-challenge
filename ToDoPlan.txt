@@ -1,0 +1,13 @@
+Todo List:
+#API - Server
+-Implement unit test
+-Add security in the api (auth token),especially important for methods like create or update data
+-Add pagination for the answers
+-Disable cors when was for production, axios problem in local
+
+
+#APP - Client
+-Implement unit test
+-Implement test end2end
+-Move the different table to individual pages
+

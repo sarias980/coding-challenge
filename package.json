@@ -4,8 +4,7 @@
   "description": "Beyond SWE coding challenge",
   "main": "index.js",
   "scripts": {
-    "server:run": "ts-node-dev src/server/index.ts",
-    "client:run": "npm start src/client"
+    "server:run": "ts-node-dev src/server/index.ts"
   },
   "repository": {
     "type": "git",

@@ -21,6 +21,8 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
+setUpInfluencers();
+
 // Post - Load influencers data from csv
 app.post('/influencers', async (req: Request, res: Response) => {
     console.log('Post - Load influencers data from csv')
